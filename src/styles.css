@@ -1,0 +1,37 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css");
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.uniqueContainer {
+  -webkit-transition: background-color 2s ease-in-out;
+  -moz-transition: background-color 2s ease-in-out;
+  -o-transition: background-color 2s ease-in-out;
+  transition: background-color 2s ease-in-out;
+}
+.elementFadeIn {
+  -webkit-animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#btn:focus {
+  outline: none !important;
+}
