@@ -145,7 +145,7 @@ const App = () => {
                   rel="noreferrer"
                 >
                   <Button className="mr-2" style={btnStyle}>
-                    <i class="fa-brands fa-twitter"></i>
+                    <i className="fa-brands fa-twitter"></i>
                   </Button>
                 </a>
                 <Button
