@@ -1,7 +1,3 @@
-//https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-development-libraries-projects/build-a-random-quote-machine
-//<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css' />
-//https://codesandbox.io/s/react-bootstrap-demo-forked-dde0b
-
 import React, { useState, useEffect } from "react";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 
@@ -23,11 +19,10 @@ const colorArray = [
 
 const App = () => {
   const twitLink =
-    "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=";
+    "https://twitter.com/intent/tweet?hashtags=quotes&related=freeCodeCamp&text=";
   const tumblrLink =
     "https://www.tumblr.com/widgets/share/tool?posttype=quote&tags=quotes,freecodecamp&caption=";
-  const tumblrShareSourceLink =
-    "&canonicalUrl=https%3A%2F%2Fwww.tumblr.com%2Fbuttons&shareSource=tumblr_share_button";
+  const tumblrShareSourceLink = "&canonicalUrl=" + window.location.href;
   const [quotation, setQuotation] = useState("Easy-peasy, lemon squeezy");
   const [quotationGot, setQuotationGot] = useState(false);
   const [quotationArr, setQuotationArr] = useState(null);
@@ -75,7 +70,15 @@ const App = () => {
       setBgColor(colorArray[Math.floor(Math.random() * 10)]);
       setTwitterShareLink(
         twitLink +
-          encodeURIComponent('"' + currentQuotation + '" ' + currentAuthor)
+          encodeURIComponent(
+            '"' +
+              currentQuotation +
+              '" ' +
+              currentAuthor +
+              " " +
+              window.location.href +
+              " #freeCodeCamp"
+          )
       );
       setTumblrShareLink(
         tumblrLink +
@@ -113,59 +116,58 @@ const App = () => {
       <Container
         id="quote-box"
         fluid
-        className="vh-100 d-flex align-items-center uniqueContainer"
+        className="vh-100 d-flex align-items-center uniqueContainer p-0"
         style={{ backgroundColor: bgColor }}
       >
-        <Row>
-          <Col className="d-flex justify-content-center">
-            <Card style={cardStyle}>
-              <Card.Body
-                className={textVisibility && "elementFadeIn"}
-                onAnimationEnd={() => {
-                  setTextVisibility(false);
-                }}
-                style={{ color: bgColor }}
-              >
-                <Card.Title id="text" className="text-center">
-                  '{quotation}
-                </Card.Title>
-                <Card.Text id="author" className="text-right">
-                  {"- " + author}
-                </Card.Text>
-              </Card.Body>
-              <Card.Body className="d-flex">
-                <Col>
-                  <a
-                    id="tweet-quote"
-                    href={twitterShareLink}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <Button className="mr-2" style={btnStyle}>
-                      tw
-                    </Button>
-                  </a>
-                  <Button
-                    onClick={(e) => {
-                      console.log(tumblrShareLink);
-                      e.preventDefault();
-                      window.open(tumblrShareLink, "_blank");
-                    }}
-                    style={btnStyle}
-                  >
-                    tu
-                  </Button>
-                </Col>
-                <Button
-                  id="new-quote"
-                  style={btnStyle}
-                  onClick={bindNewQuotation}
+        <Row className="w-100 d-flex justify-content-center">
+          <Card className="quoteCart" style={cardStyle}>
+            <Card.Body
+              className={textVisibility && "elementFadeIn"}
+              onAnimationEnd={() => {
+                setTextVisibility(false);
+              }}
+              style={{ color: bgColor }}
+            >
+              <Card.Title id="text" className="text-center">
+                <i className="fa fa-quote-left mr-2"> </i>
+                {quotation}
+              </Card.Title>
+              <Card.Text id="author" className="text-right">
+                {"- " + author}
+              </Card.Text>
+            </Card.Body>
+            <Card.Body className="d-flex">
+              <Col>
+                <a
+                  id="tweet-quote"
+                  href={twitterShareLink}
+                  target="_blank"
+                  rel="noreferrer"
                 >
-                  New quote
+                  <Button className="mr-2" style={btnStyle}>
+                    <i className="fa fa-twitter"></i>
+                  </Button>
+                </a>
+                <Button
+                  onClick={(e) => {
+                    console.log(tumblrShareLink);
+                    e.preventDefault();
+                    window.open(tumblrShareLink, "_blank");
+                  }}
+                  style={btnStyle}
+                >
+                  <i className="fa fa-tumblr"></i>
                 </Button>
-              </Card.Body>
-            </Card>
-          </Col>
+              </Col>
+              <Button
+                id="new-quote"
+                style={btnStyle}
+                onClick={bindNewQuotation}
+              >
+                New quote
+              </Button>
+            </Card.Body>
+          </Card>
         </Row>
       </Container>
     </div>

@@ -3,6 +3,14 @@
   font-family: sans-serif;
   text-align: center;
 }
+#text {
+  font-family: "Aboreto", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#author {
+  font-family: "Aboreto", cursive;
+}
 .uniqueContainer {
   -webkit-transition: background-color 2s ease-in-out;
   -moz-transition: background-color 2s ease-in-out;
@@ -34,4 +42,15 @@
 
 #btn:focus {
   outline: none !important;
+}
+
+@media screen and (max-width: 900px) {
+  .quoteCart {
+    transform: scale(0.8);
+  }
+}
+@media screen and (max-width: 600px) {
+  .quoteCart {
+    transform: scale(0.65);
+  }
 }
