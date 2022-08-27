@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Container, Row, Col, Card } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import "./styles.css";
 
@@ -43,7 +43,8 @@ const App = () => {
   const cardStyle = {
     maxWidth: "550px",
     minWidth: "550px",
-    width: "550px"
+    width: "550px",
+    backgroundColor: "white"
   };
 
   const btnStyle = {
@@ -112,64 +113,57 @@ const App = () => {
     getQuotation();
   }, []);
   return (
-    <div>
-      <Container
-        id="quote-box"
-        fluid
-        className="vh-100 d-flex align-items-center uniqueContainer p-0"
-        style={{ backgroundColor: bgColor }}
-      >
-        <Row className="w-100 d-flex justify-content-center">
-          <Card className="quoteCart" style={cardStyle}>
-            <Card.Body
-              className={textVisibility && "elementFadeIn"}
-              onAnimationEnd={() => {
-                setTextVisibility(false);
-              }}
-              style={{ color: bgColor }}
-            >
-              <Card.Title id="text" className="text-center">
-                <i className="fa fa-quote-left mr-2"> </i>
-                {quotation}
-              </Card.Title>
-              <Card.Text id="author" className="text-right">
-                {"- " + author}
-              </Card.Text>
-            </Card.Body>
-            <Card.Body className="d-flex">
-              <Col>
-                <a
-                  id="tweet-quote"
-                  href={twitterShareLink}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Button className="mr-2" style={btnStyle}>
-                    <i className="fa-brands fa-twitter"></i>
-                  </Button>
-                </a>
-                <Button
-                  onClick={(e) => {
-                    console.log(tumblrShareLink);
-                    e.preventDefault();
-                    window.open(tumblrShareLink, "_blank");
-                  }}
-                  style={btnStyle}
-                >
-                  <i className="fa-brands fa-tumblr"></i>
-                </Button>
-              </Col>
-              <Button
-                id="new-quote"
-                style={btnStyle}
-                onClick={bindNewQuotation}
+    <div
+      fluid
+      className="vh-100 d-flex align-items-center uniqueContainer p-0"
+      style={{ backgroundColor: bgColor }}
+    >
+      <div className="w-100 d-flex justify-content-center">
+        <div id="quote-box" className="quoteCart" style={cardStyle}>
+          <div
+            className={textVisibility && "elementFadeIn"}
+            onAnimationEnd={() => {
+              setTextVisibility(false);
+            }}
+            style={{ color: bgColor }}
+          >
+            <div id="text" className="text-center">
+              <i className="fa fa-quote-left mr-2"> </i>
+              {quotation}
+            </div>
+            <div id="author" className="text-right">
+              {"- " + author}
+            </div>
+          </div>
+          <div className="d-flex">
+            <div>
+              <a
+                id="tweet-quote"
+                href={twitterShareLink}
+                target="_blank"
+                rel="noreferrer"
               >
-                New quote
+                <Button className="mr-2" style={btnStyle}>
+                  <i className="fa-brands fa-twitter"></i>
+                </Button>
+              </a>
+              <Button
+                onClick={(e) => {
+                  console.log(tumblrShareLink);
+                  e.preventDefault();
+                  window.open(tumblrShareLink, "_blank");
+                }}
+                style={btnStyle}
+              >
+                <i className="fa-brands fa-tumblr"></i>
               </Button>
-            </Card.Body>
-          </Card>
-        </Row>
-      </Container>
+            </div>
+            <Button id="new-quote" style={btnStyle} onClick={bindNewQuotation}>
+              New quote
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
