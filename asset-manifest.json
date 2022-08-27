@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/rand0m-qu0te-machine/static/css/main.c62ef09f.css",
+    "main.js": "/rand0m-qu0te-machine/static/js/main.469161c2.js",
+    "index.html": "/rand0m-qu0te-machine/index.html",
+    "main.c62ef09f.css.map": "/rand0m-qu0te-machine/static/css/main.c62ef09f.css.map",
+    "main.469161c2.js.map": "/rand0m-qu0te-machine/static/js/main.469161c2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c62ef09f.css",
+    "static/js/main.469161c2.js"
+  ]
+}

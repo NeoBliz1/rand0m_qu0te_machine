@@ -1,0 +1,2 @@
+@import url(https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css);.App{font-family:sans-serif;text-align:center}.uniqueContainer{transition:background-color 2s ease-in-out}.elementFadeIn{-webkit-animation:fadeIn 2s ease-in-out;animation:fadeIn 2s ease-in-out}@-webkit-keyframes fadeIn{0%{opacity:0}to{opacity:1}}@keyframes fadeIn{0%{opacity:0}to{opacity:1}}#btn:focus{outline:none!important}
+/*# sourceMappingURL=main.c62ef09f.css.map*/
