@@ -114,14 +114,17 @@ const App = () => {
   }, []);
   return (
     <div
-      fluid
       className="vh-100 d-flex align-items-center uniqueContainer p-0"
       style={{ backgroundColor: bgColor }}
     >
       <div className="w-100 d-flex justify-content-center">
-        <div id="quote-box" className="quoteCart" style={cardStyle}>
+        <div
+          id="quote-box"
+          className="quoteCart p-5 rounded-lg shadow-lg"
+          style={cardStyle}
+        >
           <div
-            className={textVisibility && "elementFadeIn"}
+            className={textVisibility ? "elementFadeIn" : "qouteText"}
             onAnimationEnd={() => {
               setTextVisibility(false);
             }}
@@ -131,11 +134,11 @@ const App = () => {
               <i className="fa fa-quote-left mr-2"> </i>
               {quotation}
             </div>
-            <div id="author" className="text-right">
+            <div id="author" className="text-right mt-2">
               {"- " + author}
             </div>
           </div>
-          <div className="d-flex">
+          <div className="d-flex justify-content-between mt-4">
             <div>
               <a
                 id="tweet-quote"
